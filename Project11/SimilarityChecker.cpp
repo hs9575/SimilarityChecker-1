@@ -6,6 +6,18 @@ using namespace std;
 class SimilarityChecker
 {
 public:
+	int CheckLength(const vector<string>& strs)
+	{
+		SwapStringsForCalculating(strs);
+
+		if (len1 == len2)
+			return 60;
+		if (len1 >= len2 * 2)
+			return 0;
+		return (60 - (len1 - len2) * 60 / len2);
+	}
+
+private:
 	void SwapStringsForCalculating(const vector<string>& strs)
 	{
 		len1 = strs[0].length();
@@ -19,18 +31,6 @@ public:
 		}
 	}
 
-	int CheckLength(const vector<string>& strs)
-	{
-		SwapStringsForCalculating(strs);
-
-		if (len1 == len2)
-			return 60;
-		if (len1 >= len2 * 2)
-			return 0;
-		return (60 - (len1 - len2) * 60 / len2);
-	}
-
-private:
 	int len1;
 	int len2;
 };
