@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "../Project11/SimilarityChecker.cpp"
 
-TEST(TestCaseName, TestName) {
+TEST(SimilarityCheckTest, AlphabetTest) {
 	SimilarityChecker* s1 = new SimilarityChecker();
 	EXPECT_EQ(0, s1->CheckAlphabet({ "1","DSA" }));
 	EXPECT_EQ(40, s1->CheckAlphabet({ "ASD","DSA" }));
