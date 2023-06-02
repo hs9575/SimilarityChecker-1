@@ -1,6 +1,7 @@
 #include <string>
 #include <vector>
 using namespace std;
+const int MAX_NUM_OF_ALPHABET = 26;
 
 class SimilarityChecker
 {
@@ -11,7 +12,7 @@ public:
 		if (IsCapitalOnly(strs) != true)
 			return 0;
 		
-		char alphaArray[2][26] = { { 0,} };
+		char alphaArray[2][MAX_NUM_OF_ALPHABET] = { { 0,} };
 		SetAlphaTable(strs, alphaArray);
 
 		return GetScore(alphaArray);
@@ -28,7 +29,7 @@ public:
 		return true;
 	}
 
-	void SetAlphaTable(std::vector<std::string> strs, char alphaArray[2][26])
+	void SetAlphaTable(std::vector<std::string> strs, char alphaArray[2][MAX_NUM_OF_ALPHABET])
 	{
 		for (int i = 0; i < 2; i++)
 		{
@@ -37,11 +38,11 @@ public:
 		}
 	}
 
-	int GetScore(char alphaArray[2][26])
+	int GetScore(char alphaArray[2][MAX_NUM_OF_ALPHABET])
 	{
 		int sameCnt = 0;
 		int totalCnt = 0;
-		for (int i = 0; i < 26; i++)
+		for (int i = 0; i < MAX_NUM_OF_ALPHABET; i++)
 		{
 			if (alphaArray[0][i] || alphaArray[1][i])
 				totalCnt++;
@@ -50,4 +51,6 @@ public:
 		}
 		return sameCnt * 40 / totalCnt;
 	}
+
+private:
 };
