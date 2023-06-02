@@ -7,4 +7,5 @@ TEST(TestCaseName, TestName) {
 	EXPECT_EQ(0, s1->CheckLength({ "A","BB" }));
 	EXPECT_EQ(20, s1->CheckLength({ "AAABB","BAA" }));
 	EXPECT_EQ(30, s1->CheckLength({ "AA","AAA" }));
+	delete s1;
 }
